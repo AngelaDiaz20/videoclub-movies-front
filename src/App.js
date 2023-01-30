@@ -1,8 +1,14 @@
 import React from "react";
+import AllMovies from './pages/AllMovies';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div>rutas</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<AllMovies/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

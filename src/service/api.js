@@ -1,4 +1,4 @@
 import axios from "axios";
 
-const URL = "http://localhost:8000";
+const URL = "https://to-do-app-backend.vercel.app/todos";
 
