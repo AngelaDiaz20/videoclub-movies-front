@@ -1,8 +1,15 @@
-import React from "react";
+//Components
+import AddMovie from './pages/AddMovie';
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div>rutas</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/add' element={<AddMovie/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

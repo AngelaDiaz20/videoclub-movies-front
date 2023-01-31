@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './editMovie.css'
+import './formMovie.css'
 
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
@@ -16,7 +16,7 @@ import { addMovie } from "../service/api";
 import { useNavigate } from "react-router-dom";
 
 const FormSpan = styled(FormControl)`
-  grid-column: span 2;
+    grid-column: span 2;
 `;
 
 const ButtonAdd = styled(FormControl)`
@@ -56,45 +56,6 @@ const AddMovie = () => {
                 </div>
 
                 <form className="add-form">
-                    {/* <div className="form-group form__group field">
-        <input onChange={(e) => onValueChange(e)} name="id" placeholder="id" className="form__field"/>
-        <label className="form__label" for="id">ID</label>
-      </div> 
-
-      <div className="form-group">
-        <label>Año</label>
-        <input onChange={(e) => onValueChange(e)} name="year" />
-      </div>
-
-      <div className="form-group">
-        <label>Titulo</label>
-        <input onChange={(e) => onValueChange(e)} name="title" />
-      </div>
-
-      <div className="form-group">
-        <label>Tiempo</label>
-        <input onChange={(e) => onValueChange(e)} name="time" />
-      </div>
-
-      <div className="form-group">
-        <label>Lenguaje</label>
-        <input onChange={(e) => onValueChange(e)} name="language" />
-      </div>
-
-      <div className="form-group">
-        <label>Fecha de lanzamiento</label>
-        <input onChange={(e) => onValueChange(e)} name="release" />
-      </div>
-
-      <div className="form-group">
-        <label>País</label>
-        <input onChange={(e) => onValueChange(e)} name="country" />
-      </div>
-
-      <div className="form-group">
-        <button className="btn" onClick={() => addMovieDetails()}>AGREGAR PELICULA</button>
-      </div> */}
-
                     <FormControl>
                         <InputLabel>ID</InputLabel>
                         <Input onChange={(e) => onValueChange(e)} name="id" />
