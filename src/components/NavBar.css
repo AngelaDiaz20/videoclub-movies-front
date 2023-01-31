@@ -2,9 +2,6 @@
     box-sizing: border-box;
     margin: 0;
 }
-h2{
-    font-weight: 400;
-}
 header{
     padding: .9rem;
     background-color: #001320;
@@ -17,6 +14,22 @@ a{
     text-decoration: none;
     color: white;
     margin-right: 2rem;
+}
+.border i{
+    display: none;
+}
+
+img{
+    width: 40px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.logo h2{
+    font-weight: 400;
+    padding: 10px;
 }
 .links{
     display: none;
@@ -74,5 +87,17 @@ a{
         font-size: 1rem;
         color: white;
         display: inline;
+    }
+    .border{
+        border: 1px solid #49C8A7;
+        border-radius: 10px;
+        padding: 10px 20px 10px 30px;
+    }
+    .border i{
+        display: inline-block;
+    }
+    .fa-solid{
+        color: #49C8A7;
+        padding-left: 15px;
     }
 }
