@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 import './formMovie.css'
-
 
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
@@ -15,7 +14,6 @@ import {
 } from "@mui/material";
 
 import { addMovie } from "../service/api";
-import { useNavigate } from "react-router-dom";
 
 const FormSpan = styled(FormControl)`
     grid-column: span 2;
