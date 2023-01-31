@@ -26,7 +26,7 @@
     ·
     <a href="#">Jonathan Sánchez</a>
     ·
-    <a href="#">Jazmin Bejarano</a>
+    <a href="https://github.com/Jlbejarano662">Jazmin Bejarano</a>
   </p>
 </div>
 
@@ -106,3 +106,31 @@ Por otra parte se creo una una funcion llamada filteredMovies con la cual se rea
   />
 ```
 En este imput le asignamos la variable inputTitle que tenemso en el hook useState para que los datos que ingrese el usuario se guarden en esta variable y se utiliza el metodo onChange para ejecutar una funcion interna y que el valor que ingrese el usuario se cambie en tiempo real con la funcion setInputTitle que nos genera el hook useState.
+
+* <h3>Lista de películas</h3>
+
+Para consultar los datos de películas registradas en la base de datos, se utiliza una función asíncrona que retorna una promesa, el valor de esta promesa está dado por la respuesta del método getMovies() de nuestra API. Finalmente, se actualiza el estado de la constante movies con los valores retornados. 
+
+```javascript
+  const getAllMovies = async () => {
+    let response = await getMovies();
+    setMovies(response.data);
+  };
+```
+
+Se utiliza el hook useState para actualizar el listado de películas cada vez que se renderice el componente.
+
+```javascript
+  useEffect(() => {
+    getAllMovies();
+  }, []);
+```
+
+Para eliminar películas, se utiliza una función asíncrona que recibe como parámetro el id de la película a eliminar. Esta función muestra una alerta para confirmar o cancelar la acción, en caso dado de que la acción se confirma, se ejecuta el método deleteMovie(id) de nuestra API y posteriormente se informa al usuario en una nueva alerta que el registro fue borrado. 
+
+```javascript
+  const getAllMovies = async () => {
+    let response = await getMovies();
+    setMovies(response.data);
+  };
+```
