@@ -1,8 +1,21 @@
 import React from "react";
+import {BrowserRouter} from 'react-router-dom';
+
+//Components
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+
+import AllRoutes from "./routes/Routes";
 
 function App() {
   return (
-    <div>rutas</div>
+    <>
+    <Navbar/>
+    <BrowserRouter> 
+      <AllRoutes/>
+    </BrowserRouter>
+    <Footer/>
+    </>
   );
 }
 
