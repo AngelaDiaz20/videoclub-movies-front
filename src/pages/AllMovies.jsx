@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
@@ -17,9 +17,11 @@ const AllMovies = () => {
   const [movies, setMovies] = useState([]);
   const [inputTitle, setInputTitle] = useState("");
   
-  const filterMovies = movies.filter(movie => (
-    movie.title.toLowerCase().includes(inputTitle.toLowerCase())
-  ))
+  const filteredMovies = useMemo(() => {
+        return movies.filter(item => (
+            item.title.toLowerCase().includes(inputTitle.toLowerCase())
+        ))
+  },[storeItems, text]);
 
   useEffect(() => {
     getAllMovies();
@@ -79,12 +81,6 @@ const AllMovies = () => {
         }}
         variant="outlined"
         />
-
-       {/* <Input value={inputTitle}
-        placeholder="Buscar por titulo"
-        onChange={(e) => setInputTitle(e.target.value)}
-      /> */}
-      
       <table className="table">
         <thead>
           <tr className="table-head">
@@ -99,7 +95,7 @@ const AllMovies = () => {
           </tr>
         </thead>
         <tbody>
-          {movies.map((movie) => (
+          {filteredMovies.map((movie) => (
             <tr key={movie._id} className="table-body">
               <td>{movie.id}</td>
               <td>{movie.title}</td>
