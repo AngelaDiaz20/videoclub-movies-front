@@ -2,35 +2,40 @@ import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-import "./allMovies.css";
-
-import { getMovies, deleteMovie } from "../service/api";
+// import components
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-
+// import styles
+import "./allMovies.css";
+// import icons
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
+// import of services
+import { getMovies, deleteMovie } from "../service/api";
 
 const AllMovies = () => {
-  // const [movies, setMovies] = useState(data);
   const [movies, setMovies] = useState([]);
   const [inputTitle, setInputTitle] = useState("");
 
+  /* Filter the records in the table based on the movie title and cache the result. The above action uses the variables inputTitle and movies as dependencies. */
   const filteredMovies = useMemo(() => {
     return movies.filter((item) =>
       item.title.toLowerCase().includes(inputTitle.toLowerCase())
     );
   }, [inputTitle, movies]);
 
+  /* updates the list of movies each time the component is rendered */
   useEffect(() => {
     getAllMovies();
   }, []);
 
+  /* use the getMovies API service to retrieve the list of movies from the database */
   const getAllMovies = async () => {
     let response = await getMovies();
     setMovies(response.data);
   };
 
+  /*It uses an alert to confirm or cancel the deletion of a movie, if the action is confirmed, the deleteMovie API service is executed to delete a movie using the id as a parameter.*/
   const deleteMovieDetails = async (id) => {
     Swal.fire({
       title: "¿Estás seguro de querer eliminar esta película?",
@@ -54,27 +59,31 @@ const AllMovies = () => {
     });
   };
 
+  //HTML
   return (
     <div className="all-movies">
+      {/* movie search input */}
       <div className="search">
-      <TextField
-        id="searchInput"
-        value={inputTitle}
-        placeholder=" Buscar por titulo"
-        onChange={(e) => setInputTitle(e.target.value)}
-        label=""
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="end">
-              <AiOutlineSearch />
-            </InputAdornment>
-          ),
-        }}
-        variant="outlined"
-      />
+        <TextField
+          id="searchInput"
+          value={inputTitle}
+          placeholder=" Buscar por titulo"
+          onChange={(e) => setInputTitle(e.target.value)}
+          label=""
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="end">
+                <AiOutlineSearch />
+              </InputAdornment>
+            ),
+          }}
+          variant="outlined"
+        />
       </div>
+      {/* table with information */}
       <div className="table-responsive">
         <table className="table">
+          {/* table header */}
           <thead>
             <tr className="table-head">
               <th>ID</th>
@@ -87,7 +96,9 @@ const AllMovies = () => {
               <th>ACCIONES</th>
             </tr>
           </thead>
+          {/* table body */}
           <tbody>
+            {/* maps the array of movies and for each element it generates a row in the table that shows its information */}
             {filteredMovies.map((movie) => (
               <tr key={movie._id} className="table-body">
                 <td>{movie.id}</td>
@@ -99,9 +110,11 @@ const AllMovies = () => {
                 <td>{movie.country}</td>
                 <td>
                   <div className="actions">
+                    {/* button to edit a movie */}
                     <Link to={`/edit/${movie._id}`} className="button edit">
                       <BsFillPencilFill className="icon" />
                     </Link>
+                    {/* button to delete a movie */}
                     <Link
                       className="button delete"
                       onClick={() => deleteMovieDetails(movie._id)}
