@@ -1,8 +1,9 @@
 import React from "react";
+//import the css
 import './Footer.css'
 
 const Footer = () => {
-
+    //footer and icons from https://fontawesome.com/
     return (
         <>
             <footer>
