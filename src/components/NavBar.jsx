@@ -14,12 +14,14 @@ const Navbar = () => {
             <header>
                 <h2>VIDEOCLUB</h2>
                 <div className={`links ${clicked ? 'active' : ''}`}>
-                    <a href="/">Lista de peliculas</a>
-                    <a href="/">Agregar pelicula</a>
+                    <a onClick={handleClick} href="/">Lista de peliculas</a>
+                    <a onClick={handleClick} href="/">Agregar pelicula</a>
                 </div>
                 <div className="burger">
                     <BurgerButton clicked={clicked} handleClick={handleClick}/>
                 </div>
+                {/* bgMenu */}
+                <div className={`initial ${clicked ? 'active' : ''}`}></div>
             </header>
         </>
     );
