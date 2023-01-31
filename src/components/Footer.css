@@ -12,7 +12,7 @@ footer{
     margin-right: auto;
 }
 hr{
-    width: 7rem;
+    width: 9rem;
     background-color: #49C8A7;
     margin: 0px auto;
 }
@@ -21,4 +21,24 @@ hr{
     margin-right: 2rem;
     margin-top: 1rem;
     font-size: 28px;
+}
+
+.text{
+    font-size: 1.5rem;
+}
+
+@media(max-width: 768px){
+    hr{
+        width: 7.8rem;
+    }
+    
+    .fa-brands{
+        margin-right: 2rem;
+        margin-top: 1rem;
+        font-size: 22px;
+    }
+    
+    .text{
+        font-size: 1.2rem;
+    }
 }
