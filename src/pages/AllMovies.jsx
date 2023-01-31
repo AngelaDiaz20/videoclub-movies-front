@@ -1,9 +1,19 @@
 import React from "react";
 
 const AllMovies = () => {
+
+const [inputTitle, setInputTitle] = useState("");
+
+const filterMovies = movies.filter(movie => (
+    movie.title.toLowerCase().includes(inputTitle.toLowerCase())
+))
   
   return (
-    <div>all movies</div>
+    <Input value={inputTitle}
+        className="SearchBar"
+        placeholder="Buscar por titulo"
+        onChange={(e) => setInputTitle(e.target.value)}
+    />
   );
 
 };
