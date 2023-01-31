@@ -21,25 +21,16 @@ const AllMovies = () => {
         return movies.filter(item => (
             item.title.toLowerCase().includes(inputTitle.toLowerCase())
         ))
-  },[storeItems, text]);
+  },[inputTitle, movies]);
 
   useEffect(() => {
     getAllMovies();
   }, []);
 
-  // const getAllMovies = () => {
-  //   setMovies(data);
-  // };
-
-
   const getAllMovies = async () => {
     let response = await getMovies();
     setMovies(response.data);
   };
-  // const deleteMovieDetails = async (id) => {
-  //   await deleteMovie(id);
-  //   getAllMovies();
-  // }; 
 
   const deleteMovieDetails = async (id) => {
     Swal.fire({
@@ -113,7 +104,7 @@ const AllMovies = () => {
                     className="btn delete"
                     onClick={() => deleteMovieDetails(movie._id)}
                   >
-                    <BsFillTrashFill className="icon" />
+                  <BsFillTrashFill className="icon" />
                   </Link>
                 </div>
               </td>
