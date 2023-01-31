@@ -1,28 +1,26 @@
-import React from "react";
-import { AppBar, Toolbar, styled } from '@mui/material';
-import { NavLink } from 'react-router-dom';
-
-const Header = styled(AppBar)
-    `background: #001320`;
-
-const Tabs = styled(NavLink)
-    `font-size:20px;
-    margin-right: 40px;
-    color: inherit;
-    text-decoration: none;`
-
+import React, {useState} from "react";
+import BurgerButton from "./BurgerButton";
+import './NavBar.css'
 
 const Navbar = () => {
 
+    const [clicked, setClicked] = useState(false)
+
+    const handleClick = () => {
+        setClicked(!clicked)
+    }
     return (
         <>
-            <Header position='static'>
-                <Toolbar>
-                    {/* <Tabs to='/'>Lista de películas</Tabs>
-                    <Tabs to='/add'>Agregar pelicula</Tabs> */}
-                </Toolbar>
-            </Header>
-            <div>Navbar</div>
+            <header>
+                <h2>VIDEOCLUB</h2>
+                <div className={`links ${clicked ? 'active' : ''}`}>
+                    <a href="/">Lista de peliculas</a>
+                    <a href="/">Agregar pelicula</a>
+                </div>
+                <div className="burger">
+                    <BurgerButton clicked={clicked} handleClick={handleClick}/>
+                </div>
+            </header>
         </>
     );
 
