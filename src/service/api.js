@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://videoclub-server-back.vercel.app/";
+const URL = "https://videoclub-server-back.vercel.app";
 
 export const addMovie = async (data) => {
     try {
