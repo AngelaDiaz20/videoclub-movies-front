@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import AllMovies from "../pages/AllMovies";
 import AddMovie from "../pages/AddMovie";
@@ -10,6 +10,7 @@ const AllRoutes = () => {
         <>
             <Routes>
                 <Route path='/' element={<AllMovies />} />
+                <Route path="/all" element={<Navigate to="/"/>} />
                 <Route path='/add' element={<AddMovie />} />
                 <Route path='/edit/:id' element={<EditMovie />} />
             </Routes>

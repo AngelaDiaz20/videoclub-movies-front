@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 import "./allMovies.css";
 
@@ -134,9 +135,32 @@ const AllMovies = () => {
     let response = await getMovies();
     setMovies(response.data);
   };
+  // const deleteMovieDetails = async (id) => {
+  //   await deleteMovie(id);
+  //   getAllMovies();
+  // }; 
+
   const deleteMovieDetails = async (id) => {
-    await deleteMovie(id);
-    getAllMovies();
+    Swal.fire({
+      title: '¿Estás seguro de querer eliminar esta película?',
+      text: "¡No podrás revertir esta acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, ¡bórrala!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteMovie(id);
+        Swal.fire(
+          '¡Película eliminada!',
+          `El registro de esta película ha sido borrado con éxito`,
+          'success'
+        )
+        getAllMovies();
+      }
+    })
   }; 
 
   return (

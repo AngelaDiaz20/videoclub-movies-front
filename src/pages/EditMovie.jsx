@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Link} from 'react-router-dom'
 
 import './formMovie.css'
 
@@ -19,10 +20,6 @@ const FormSpan = styled(FormControl)`
     grid-column: span 2;
 `;
 
-const ButtonAdd = styled(FormControl)`
-    margin: 20px 0;
-    grid-column: span 2;
-`;
 
 const defaultValue = {
   id: "",
@@ -54,7 +51,7 @@ const EditMovie = () => {
 
   const editMovieDetails = async () => {
     await editMovie(movie, id);
-    navigate("/");
+    navigate("/all");
   };
   return (
     <>
@@ -62,7 +59,7 @@ const EditMovie = () => {
         <section className="container_form">
           <div className="title">
             <div className="triangle"></div>
-            <h1>REGISTRO DE PELÍCULA</h1>
+            <h1>EDITAR PELÍCULA - {movie.title}</h1>
           </div>
 
           <form className="add-form">
@@ -122,11 +119,12 @@ const EditMovie = () => {
               />
             </FormControl>
 
-            <ButtonAdd>
+            <div className="btns-actions">
+              <Link to='/all'><button className="btn btn-edit"> CANCELAR </button></Link>
               <button className="btn" onClick={() => editMovieDetails()}>
-                EDITAR PELICULA
+                GUARDAR CAMBIOS
               </button>
-            </ButtonAdd>
+            </div>
 
           </form>
         </section>

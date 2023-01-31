@@ -1,5 +1,7 @@
 import { useState } from "react";
+import Swal from 'sweetalert2'
 import './formMovie.css'
+
 
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
@@ -45,8 +47,28 @@ const AddMovie = () => {
 
     const addMovieDetails = async () => {
         await addMovie(movie);
-        navigate('/');
+        navigate('/all');
     }
+
+    // const addMovieDetails = async () => {
+    //     await addMovie(movie);
+    //     Swal.fire({
+    //         title: 'Registro exitoso',
+    //         text: "¿Deseas añadir otro nuevo registro?",
+    //         icon: 'success',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Si, añadir',
+    //         cancelButtonText: 'No, ver listado'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             navigate('/add');
+    //         }
+    //     })
+        
+    // }
+
     return (
         <section className="container_all">
             <section className="container_form">
@@ -92,7 +114,7 @@ const AddMovie = () => {
                     </FormControl>
 
                     <ButtonAdd>
-                        <button className="btn" onClick={() => addMovieDetails()}><MdNoteAdd className="icon" />AGREGAR PELICULA</button>
+                        <button className="btn" onClick={() => addMovieDetails()}><MdNoteAdd className="icon"/>AGREGAR PELICULA</button>
                     </ButtonAdd>
 
                 </form>

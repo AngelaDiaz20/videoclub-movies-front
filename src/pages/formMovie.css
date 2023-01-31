@@ -91,6 +91,10 @@
     /* background-color: transparent; */
 }
 
+.container_form .btn-edit{
+    margin: 0 auto;
+}
+
 .btn:after {
     content: "";
     position: absolute;
@@ -165,6 +169,11 @@
         width: 250px;
         height: 40px;
         margin: auto;
+    }
+
+    .btns-actions{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .add-form {
