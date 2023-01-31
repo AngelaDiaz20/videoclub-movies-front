@@ -16,7 +16,7 @@
     <br />
     <a href="#">Despligue de la aplicación</a>
     <br />
-    <a href="https://brayanduarte.vercel.app/">Brayan Duarte</a>
+    <a href="#">Brayan Duarte</a>
     ·
     <a href="https://github.com/AngelaDiaz20">Angela Diaz</a>
     ·
