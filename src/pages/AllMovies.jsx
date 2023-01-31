@@ -1,136 +1,135 @@
 import { useEffect, useState } from "react";
-
-/* import { getMovies, deleteMovie } from "../service/api"; */
-
 import { Link } from "react-router-dom";
 
 import "./allMovies.css";
 
+import { getMovies, deleteMovie } from "../service/api";
+
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 
 const AllMovies = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    {
-      id: 2,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    {
-      id: 3,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 4,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 5,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 6,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 7,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 8,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 9,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 10,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-    ,
-    {
-      id: 11,
-      title: "Título de la película",
-      year: 1999,
-      time: 22,
-      language: "Español",
-      release: "01-01-2023",
-      country: "uk",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 4,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 5,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 6,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 7,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 8,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 9,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 10,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  //   ,
+  //   {
+  //     id: 11,
+  //     title: "Título de la película",
+  //     year: 1999,
+  //     time: 22,
+  //     language: "Español",
+  //     release: "01-01-2023",
+  //     country: "uk",
+  //   },
+  // ];
 
-  const [movies, setMovies] = useState(data);
-  /* const [movies, setMovies] = useState([]); */
+  // const [movies, setMovies] = useState(data);
+  const [movies, setMovies] = useState([]); 
 
   useEffect(() => {
     getAllMovies();
   }, []);
 
-  const getAllMovies = () => {
-    setMovies(data);
-  };
+  // const getAllMovies = () => {
+  //   setMovies(data);
+  // };
 
-  /*  
+
   const getAllMovies = async () => {
     let response = await getMovies();
     setMovies(response.data);
@@ -138,7 +137,8 @@ const AllMovies = () => {
   const deleteMovieDetails = async (id) => {
     await deleteMovie(id);
     getAllMovies();
-  }; */
+  }; 
+
   return (
     <div className="table-responsive">
       <table className="table">
@@ -171,7 +171,7 @@ const AllMovies = () => {
                   </Link>
                   <Link
                     className="btn delete"
-                    /* onClick={() => deleteMovieDetails(movie._id)} */
+                    onClick={() => deleteMovieDetails(movie._id)}
                   >
                     <BsFillTrashFill className="icon" />
                   </Link>
