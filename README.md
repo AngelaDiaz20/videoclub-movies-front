@@ -22,7 +22,7 @@
     ·
     <a href="#">Valentina Camacho</a>
     ·
-    <a href="#">Ivan Muños</a>
+    <a href="#">Ivan Muñoz</a>
     ·
     <a href="#">Jonathan Sánchez</a>
     ·
