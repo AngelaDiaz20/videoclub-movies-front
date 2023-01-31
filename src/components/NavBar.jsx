@@ -15,12 +15,15 @@ const Navbar = () => {
     return (
         <>
             <header>
-                <h2>VIDEOCLUB</h2>
+                <div className="logo">
+                    <img src="film-icon.ico" alt="logo" />
+                <h2> VIDEOCLUB</h2>
+                </div>
                 {/* concatenate with the condition if the status is true it is assigned the active class  */}
                 <div className={`links ${clicked ? 'active' : ''}`}>
                 {/* event to hide the menu */}
                     <a onClick={handleClick} href="/">Lista de peliculas</a>
-                    <a onClick={handleClick} href="/">Agregar pelicula</a>
+                    <a onClick={handleClick} className="border" href="/">Agregar pelicula <i class="fa-solid fa-circle-plus"></i> </a>
                 </div>
                 <div className="burger">
                     {/* change state button */}
