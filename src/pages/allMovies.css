@@ -1,1 +1,64 @@
 /* allmovies */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 90%;
+  margin: 50px auto auto auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 750px;
+}
+
+.table-head {
+  background: #001320;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-head > th {
+  color: #ffffff;
+  font-size: 1rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0.7rem 0.5rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+.table-body > td {
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-bottom: 0.35px solid #000000;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.actions > .btn {
+  padding: 5%;
+  background: #49c8a7;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  min-width: 20px;
+  max-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions > .btn.edit {
+  background: #49c8a7;
+}
+
+.actions > .btn.delete {
+  background: #ef544a;
+}
+
+.actions > .btn > .icon {
+  color: #ffffff;
+}
