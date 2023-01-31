@@ -5,8 +5,9 @@ import Swal from 'sweetalert2'
 import "./allMovies.css";
 
 import { getMovies, deleteMovie } from "../service/api";
+import TextField from '@mui/material/TextField';
 
-import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillTrashFill, AiOutlineSearch } from "react-icons/bs";
 
 const AllMovies = () => {
   // const data = [
@@ -120,7 +121,12 @@ const AllMovies = () => {
   // ];
 
   // const [movies, setMovies] = useState(data);
-  const [movies, setMovies] = useState([]); 
+  const [movies, setMovies] = useState([]);
+  const [inputTitle, setInputTitle] = useState("");
+  
+  const filterMovies = movies.filter(movie => (
+    movie.title.toLowerCase().includes(inputTitle.toLowerCase())
+  ))
 
   useEffect(() => {
     getAllMovies();
@@ -165,6 +171,25 @@ const AllMovies = () => {
 
   return (
     <div className="table-responsive">
+        <TextField
+        id="searchInput"
+        value={inputTitle}
+        placeholder="Buscar por titulo"
+        onChange={(e) => setInputTitle(e.target.value)}
+        label="Outlined"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="end">
+              <AiOutlineSearch />
+            </InputAdornment>
+          ),
+        }}
+        variant="outlined"
+        />
+//         <Input value={inputTitle}
+//         placeholder="Buscar por titulo"
+//         onChange={(e) => setInputTitle(e.target.value)}
+//         />
       <table className="table">
         <thead>
           <tr className="table-head">
