@@ -6,119 +6,12 @@ import "./allMovies.css";
 
 import { getMovies, deleteMovie } from "../service/api";
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment'
 
-import { BsFillPencilFill, BsFillTrashFill, AiOutlineSearch } from "react-icons/bs";
+import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai"
 
 const AllMovies = () => {
-  // const data = [
-  //   {
-  //     id: 1,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 4,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 5,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 6,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 7,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 8,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 9,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 10,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  //   ,
-  //   {
-  //     id: 11,
-  //     title: "Título de la película",
-  //     year: 1999,
-  //     time: 22,
-  //     language: "Español",
-  //     release: "01-01-2023",
-  //     country: "uk",
-  //   },
-  // ];
 
   // const [movies, setMovies] = useState(data);
   const [movies, setMovies] = useState([]);
@@ -186,10 +79,12 @@ const AllMovies = () => {
         }}
         variant="outlined"
         />
-//         <Input value={inputTitle}
-//         placeholder="Buscar por titulo"
-//         onChange={(e) => setInputTitle(e.target.value)}
-//         />
+
+       {/* <Input value={inputTitle}
+        placeholder="Buscar por titulo"
+        onChange={(e) => setInputTitle(e.target.value)}
+      /> */}
+      
       <table className="table">
         <thead>
           <tr className="table-head">
