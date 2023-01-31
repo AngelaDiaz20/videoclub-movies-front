@@ -1,4 +1,19 @@
 /* allmovies */
+.all-movies {
+  margin-top: 0;
+  padding: 2rem;
+  min-height: 82vh;
+}
+
+/* search input*/
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 8rem;
+}
+
+/* table with movie information */
 .table-responsive {
   overflow-x: auto;
 }
@@ -27,6 +42,7 @@
   text-align: left;
 }
 
+/* delete and edit actions */
 .table-body > td {
   font-size: 1rem;
   padding: 0.25rem;
@@ -39,7 +55,7 @@
   justify-content: space-around;
 }
 
-.actions > .btn {
+.actions > .button {
   padding: 5%;
   background: #49c8a7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -51,14 +67,36 @@
   align-items: center;
 }
 
-.actions > .btn.edit {
+.actions > .button.edit {
   background: #49c8a7;
 }
 
-.actions > .btn.delete {
+.actions > .button.delete {
   background: #ef544a;
 }
 
-.actions > .btn > .icon {
+.actions > .button > .icon {
   color: #ffffff;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .search {
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .search {
+    padding: 1rem;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .search {
+    padding: 1rem 2rem;
+  }
 }

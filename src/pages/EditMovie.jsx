@@ -108,6 +108,7 @@ const EditMovie = () => {
               <Input onChange={(e) => onValueChange(e)} 
               name="release" 
               value={movie.release}
+              type="date"
               />
             </FormControl>
 
