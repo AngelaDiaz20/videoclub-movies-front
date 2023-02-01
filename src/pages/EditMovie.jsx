@@ -6,6 +6,8 @@ import './formMovie.css'
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
 
+import moment from "moment/moment";
+
 import {
   FormControl,
   Input,
@@ -107,7 +109,7 @@ const EditMovie = () => {
               <InputLabel>Fecha de lanzamiento</InputLabel>
               <Input onChange={(e) => onValueChange(e)} 
               name="release" 
-              value={movie.release}
+              value={moment.utc(movie.release).format('YYYY-MM-DD')}
               type="date"
               />
             </FormControl>

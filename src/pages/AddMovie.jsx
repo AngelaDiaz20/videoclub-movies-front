@@ -5,6 +5,7 @@ import './formMovie.css'
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
 import { MdNoteAdd } from 'react-icons/md'
+import Swal from "sweetalert2";
 
 import {
     FormControl,
@@ -44,8 +45,15 @@ const AddMovie = () => {
     };
 
     const addMovieDetails = async () => {
-        await addMovie(movie);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registro exitoso',
+            showConfirmButton: false,
+            timer: 1500
+        })
         navigate('/all');
+        await addMovie(movie);
     }
 
     // const addMovieDetails = async () => {
@@ -103,7 +111,7 @@ const AddMovie = () => {
 
                     <FormControl>
                         <InputLabel>Fecha de lanzamiento</InputLabel>
-                        <Input onChange={(e) => onValueChange(e)} name="release" />
+                        <Input onChange={(e) => onValueChange(e)} name="release"/>
                     </FormControl>
 
                     <FormControl>

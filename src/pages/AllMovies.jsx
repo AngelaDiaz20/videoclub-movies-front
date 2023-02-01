@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 
 // import components
 import TextField from "@mui/material/TextField";
@@ -10,6 +11,9 @@ import "./allMovies.css";
 // import icons
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
+
+import Camera from '../assets/img/videocamera.png';
+import Reel from '../assets/img/cinta-03.png'
 // import of services
 import { getMovies, deleteMovie } from "../service/api";
 
@@ -27,7 +31,7 @@ const AllMovies = () => {
   /* updates the list of movies each time the component is rendered */
   useEffect(() => {
     getAllMovies();
-  }, []);
+  }, [movies]);
 
   /* use the getMovies API service to retrieve the list of movies from the database */
   const getAllMovies = async () => {
@@ -62,6 +66,8 @@ const AllMovies = () => {
   //HTML
   return (
     <div className="all-movies">
+      <img src={Camera} alt="Imagen videocamara" className="camera" />
+      <img src={Reel} alt="Rollo fotográfico" className="reel" />
       {/* movie search input */}
       <div className="search">
         <TextField
@@ -104,9 +110,9 @@ const AllMovies = () => {
                 <td>{movie.id}</td>
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>
-                <td>{movie.time}</td>
+                <td>{movie.time} min</td>
                 <td>{movie.language}</td>
-                <td>{movie.release}</td>
+                <td>{moment.utc(movie.release).format('YYYY-MM-DD')}</td>
                 <td>{movie.country}</td>
                 <td>
                   <div className="actions">

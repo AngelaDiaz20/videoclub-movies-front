@@ -125,6 +125,12 @@
     row-gap: 20px;
 }
 
+.logo{
+    font-family: var(--title-font);
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+
 @media screen and (min-width: 768px) {
     .container_all {
         height: 100vh;

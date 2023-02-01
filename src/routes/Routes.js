@@ -5,9 +5,12 @@ import AllMovies from "../pages/AllMovies";
 import AddMovie from "../pages/AddMovie";
 import EditMovie from "../pages/EditMovie";
 
+import { ScrollToTop } from "../components/ScrollToTop";
+
 const AllRoutes = () => {
     return (
         <>
+            <ScrollToTop/>
             <Routes>
                 <Route path='/' element={<AllMovies />} />
                 <Route path="/all" element={<Navigate to="/"/>} />
