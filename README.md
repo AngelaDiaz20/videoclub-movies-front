@@ -193,3 +193,98 @@ Este compoente renderiza el header de la pagina el cual estan el logo, nombre de
   }
 ```
 Inicialmente el hook se lo asignamos como booleano 'false' para poder controlar los links y el menu de hamburguesa con las clases para el responsive. La constante 'handleclick' setea 'clicked' para pasarlo a su forma negada 
+
+## ScrollToTop
+
+```javascript
+function ScrollToTop() {
+    const { pathname } = useLocation()
+	
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [pathname])
+    return(null)
+}
+
+export {ScrollToTop}
+```
+La función `useLocation` proporciona información sobre la ubicación actual del usuario, mientras que `useEffect` es un hook que permite ejecutar código en un componente después de que este se haya renderizado en el DOM.
+
+La función `ScrollToTop` se usa para llevar al usuario al inicio de la página cada vez que cambia la ruta (`pathname`). Cada vez que `pathname` cambia, se ejecutará la función de efecto que utiliza `window.scrollTo(0,0)` para llevar al usuario al inicio de la página. Finalmente, se devuelve `null` para no renderizar nada en el componente.
+
+------------
+
+## AddMovie
+
+```javascript
+const ButtonAdd = styled(FormControl)`
+    margin: 20px 0;
+    grid-column: span 2;
+`;
+```
+`ButtonAdd` es un componente de React que se crea a partir de otro componente `FormControl` utilizando la librería de estilos `emotion/style`. La función `styled` permite aplicar estilos personalizados al componente base.
+
+```javascript
+const defaultValue = {
+    id: "",
+    title: "",
+    year: "",
+    time: "",
+    language: "",
+    release: "",
+    country: "",
+};
+...
+const [movie, setMovie] = useState(defaultValue);
+```
+El hook `useState` devuelve un par de valores, `movie` y `setMovie`. `movie` representa el objeto de estado actual que contiene los detalles de la película, mientras que `setMovie` es una función que permite actualizar ese estado. Recibe además un objeto `defaultValue` como argumento inicial, que representa una película vacía con valores predeterminados para cada propiedad.
+
+```javascript
+const navigate = useNavigate();
+```
+`useNavigate` es un hook de `React Router`. `navigate` es una variable que almacena la función de navegación proporcionada por el hook, que puede usarse para navegar a una nueva página.
+
+```javascript
+const onValueChange = (e) => {
+      setMovie({ ...movie, [e.target.name]: e.target.value });
+};
+```
+La función `onValueChange` es invocada cada vez que un valor de un campo de entrada cambia en un formulario. `e` es el objeto de evento que contiene información sobre el evento que se ha disparado (en este caso, un evento de cambio de valor).
+
+La función utiliza el hook de estado `setMovie` para actualizar el estado de `movie`. Primero, utiliza el operador de propagación de objetos `(...movie)` para crear una copia del objeto de estado existente. Luego, usa la notación de corchetes `([e.target.name]: e.target.value)` para actualizar una propiedad en el objeto con el nombre y el valor del campo de entrada actual.
+
+```javascript
+const addMovieDetails = async () => {
+        navigate('/all');
+        await addMovie(movie);
+    }
+```
+La función `addMovieDetails` Utiliza el hook `useNavigate` para navegar a la página principal (`/all`). También invoca a otra función llamada `addMovie` y le pasa el estado `movie` como argumento. La función es asíncrona, lo que significa que se ejecuta en segundo plano sin bloquear el resto del código.
+
+## EditMovie
+```javascript
+const { id } = useParams();
+```
+`useParams` es un hook que te permite acceder a los parámetros de la ruta actual en la aplicación. Por ejemplo, si tienes una ruta como **/movie/:id**, puedes acceder al valor del parámetro **id** con `useParams().id`. Esto es útil para recuperar información específica sobre la ruta actual en la aplicación.
+
+```javascript
+const loadMovieDetails = async () => {
+    const response = await getMovie(id);
+    setMovie(response.data);
+  };
+```
+La función `loadMovieDetails` hace una petición a la base de datos para obtener los detalles de una película específica usando la función `getMovie`, (la cual devuelve una promesa). La respuesta se almacena en la constante response.
+
+Luego, la función utiliza el hook de estado `setMovie` para actualizar el objeto de estado de la película con los datos obtenidos de la base de datos `(response.data)`.
+
+
+```javascript
+<Input onChange={(e) => onValueChange(e)} 
+         name="release" 
+         value={moment.utc(movie.release).format('YYYY-MM-DD')}
+         type="date"
+ />
+```
+La propiedad `onChange` es una función de manejo de eventos que se llama cada vez que el usuario cambia el valor del elemento de formulario. La función `onValueChange` se proporciona como un valor para la propiedad `onChange`.
+
+`moment.utc(movie.release)` crea un nuevo objeto `moment` en formato **UTC** a partir del valor de la fecha de lanzamiento de una película `(movie.release)`. La función `.utc` convierte la fecha a formato **UTC**, lo que significa que se toma en cuenta la diferencia horaria en todo el mundo.
