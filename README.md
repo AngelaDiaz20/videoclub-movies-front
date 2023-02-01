@@ -134,3 +134,62 @@ Para eliminar películas, se utiliza una función asíncrona que recibe como par
     setMovies(response.data);
   };
 ```
+## Componentes
+![image](https://user-images.githubusercontent.com/114447994/216084908-23b521a0-1fc7-490c-947e-070743b82c0c.png)
+* BurgerButton 
+
+Este componente renderiza el boton de hamburguesa en vista movil el cual muestra un menu para poder navegar entre la lista de las peliculas o poder agregar peliculas. 
+El icono fue extraido de: https://codepen.io/ 
+
+```javascript
+  const BurgerButton = (props) => {
+
+    return (
+        // the props at an event
+        <div onClick={props.handleClick} className={`icon nav-icon-2 ${props.cliked ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    );
+}
+```
+La contstante recibe las props del componente NavBar.
+El 'div' tiene una condicion que si el estado 'clicked' es 'true' toma la clase 'open' si el 'false' no se le asigna nada.
+
+* Footer
+
+Este componente renderiza el pie de pagina. 
+```javascript
+  const Footer = () => {
+    //footer and icons from https://fontawesome.com/
+    return (
+        <>
+            <footer>
+                <div className="text">©VIDEOCLUB</div> <hr/>
+                <div className="icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-youtube"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div>
+            </footer>
+        
+        </>
+    );
+
+};
+```
+Iconos extraidos de la pagina https://fontawesome.com/
+
+* NavBar
+
+Este compoente renderiza el header de la pagina el cual estan el logo, nombre de la pagina y poder ir a agregar peliculas o ver el listado de las peliculas 
+```javascript
+  const [clicked, setClicked] = useState(false)
+
+  const handleClick = () => {
+      setClicked(!clicked)
+  }
+```
+Inicialmente el hook se lo asignamos como booleano 'false' para poder controlar los links y el menu de hamburguesa con las clases para el responsive. La constante 'handleclick' setea 'clicked' para pasarlo a su forma negada 
