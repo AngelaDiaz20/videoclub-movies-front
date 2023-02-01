@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+//import components
 import AllMovies from "../pages/AllMovies";
 import AddMovie from "../pages/AddMovie";
 import EditMovie from "../pages/EditMovie";
 
-import { ScrollToTop } from "../components/ScrollToTop";
+import {ScrollToTop} from '../components/ScrollToTop'
 
 const AllRoutes = () => {
     return (

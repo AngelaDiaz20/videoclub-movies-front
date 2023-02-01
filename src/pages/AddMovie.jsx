@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import './formMovie.css'
 
 import Cinta from '../assets/img/cinta-sola.png'
 import MovieImg from '../assets/img/movie.png'
 import { MdNoteAdd } from 'react-icons/md'
-import Swal from "sweetalert2";
 
 import {
     FormControl,

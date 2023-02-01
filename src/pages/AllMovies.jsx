@@ -11,7 +11,7 @@ import "./allMovies.css";
 // import icons
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
-
+//import images
 import Camera from '../assets/img/videocamera.png';
 import Reel from '../assets/img/cinta-03.png'
 // import of services
@@ -112,6 +112,7 @@ const AllMovies = () => {
                 <td>{movie.year}</td>
                 <td>{movie.time} min</td>
                 <td>{movie.language}</td>
+
                 <td>{moment.utc(movie.release).format('YYYY-MM-DD')}</td>
                 <td>{movie.country}</td>
                 <td>
