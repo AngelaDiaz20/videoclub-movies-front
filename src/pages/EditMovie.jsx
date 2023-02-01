@@ -64,8 +64,8 @@ const EditMovie = () => {
 
   //Function for editing movie data
   const editMovieDetails = async () => {
-    await editMovie(movie, id);
     navigate("/all");
+    await editMovie(movie, id);
   };
 
   return (
