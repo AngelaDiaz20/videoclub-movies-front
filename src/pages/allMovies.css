@@ -4,47 +4,7 @@
   padding: 2rem;
   min-height: 82vh;
   position: relative;
-  overflow: hidden;
-}
-
-.all-movies::before{
-  content: '';
-  clip-path: polygon(0 0, 100% 0, 100% 2%, 7% 25%, 10% 100%, 0 100%);
-  height: 100%;
-  width: 100%;
-  background: #FDB000;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
-.all-movies::after{
-  content: '';
-  clip-path: polygon(6% 25%, 100% 0, 100% 4%, 7% 27%, 11% 100%, 8% 100%);;
-  height: 100%;
-  width: 100%;
-  background: rgb(255, 157, 0);
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
-.camera{
-  position: absolute;
-  height: 400px;
-  left: -10%;
-  top: 1%;
-  transform: rotate(2.5deg);
-}
-
-.reel{
-  position: absolute;
-  bottom: -1px;
-  z-index: -2;
-  right: -10%;
-  opacity: .2;
+  overflow: hidden; 
 }
 
 /* search input*/
@@ -145,7 +105,7 @@
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
   .search {
-    padding: 1rem;
+    padding: 0;
   }
 }
 
@@ -153,5 +113,156 @@
 @media (max-width: 991.98px) {
   .search {
     padding: 1rem 2rem;
+  }
+
+  .all-movies::before{
+    content: '';
+    clip-path: polygon(0 0, 100% 0, 100% 5%, 7% 10%, 10% 100%, 0 100%);
+    z-index: -3;
+    top: 0;
+    left: 0;
+  }
+  
+  .all-movies::after{
+    content: '';
+    clip-path: polygon(6% 10%, 100% 0, 100% 5%, 8% 11%, 11% 100%, 5% 100%);
+    z-index: -2;
+    top: 0;
+    left: 0;
+  }
+  
+  .camera{
+    height: 240px;
+    left: -100px;
+    top: -20px;
+    transform: rotate(10deg);
+    z-index: -1;
+  }
+  
+  .reel{
+    display: none;
+  }
+}
+
+@media screen and (min-width:320px) {
+
+  .all-movies {
+    position: relative;
+    overflow: hidden; 
+  }
+
+  .all-movies::before{
+    content: '';
+    clip-path: polygon(0 0, 100% 0, 100% 2%, 7% 25%, 10% 100%, 0 100%);
+    height: 100%;
+    width: 100%;
+    background: #FDB000;
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+  }
+  
+  .all-movies::after{
+    content: '';
+    clip-path: polygon(6% 25%, 100% 0, 100% 4%, 7% 27%, 11% 100%, 8% 100%);;
+    height: 100%;
+    width: 100%;
+    background: rgb(255, 157, 0);
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+  }
+  
+  .camera{
+    position: absolute;
+    height: 400px;
+    left: -10%;
+    top: 1%;
+    transform: rotate(2.5deg);
+  }
+  
+  .reel{
+    position: absolute;
+    bottom: -1px;
+    z-index: -2;
+    right: -10%;
+    opacity: .2;
+  }
+
+  .all-movies {
+    position: relative;
+  }
+
+  .all-movies::before{
+    content: '';
+    clip-path: polygon(0 0, 100% 0, 100% 5%, 7% 10%, 10% 100%, 0 100%);
+    z-index: -3;
+    top: 0;
+    left: 0;
+  }
+  
+  .all-movies::after{
+    content: '';
+    clip-path: polygon(6% 10%, 100% 0, 100% 5%, 8% 11%, 11% 100%, 5% 100%);
+    z-index: -2;
+    top: 0;
+    left: 0;
+  }
+  
+  .camera{
+    height: 220px;
+    left: -100px;
+    top: -20px;
+    transform: rotate(10deg);
+    z-index: -1;
+  }
+  
+  .reel{
+    display: none;
+  }
+}
+
+@media screen and (min-width:750px) {
+  .camera{
+    height: 250px;
+    left: -100px;
+    top: -40px;
+    transform: rotate(10deg);
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .all-movies::before{
+    clip-path: polygon(0 0, 100% 0, 100% 2%, 7% 25%, 10% 100%, 0 100%);
+  }
+  
+  .all-movies::after{
+    clip-path: polygon(6% 25%, 100% 0, 100% 4%, 7% 27%, 11% 100%, 8% 100%);;
+  }
+
+  .camera{
+    height: 350px;
+    left: -14%;
+    top: 2%;
+    transform: rotate(2.5deg);
+  }
+  
+  .reel{
+    bottom: -1px;
+    z-index: -2;
+    right: -10%;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .camera{
+    position: absolute;
+    height: 400px;
+    left: -10%;
+    top: 1%;
+    transform: rotate(2.5deg);
   }
 }
