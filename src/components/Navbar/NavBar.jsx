@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 //import components BurguerButton and hooks
-import BurgerButton from "./BurgerButton";
+import BurgerButton from '../burgerButton/BurgerButton'
 //import css
 import './NavBar.css'
 

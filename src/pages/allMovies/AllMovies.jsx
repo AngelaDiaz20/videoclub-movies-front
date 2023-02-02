@@ -12,10 +12,10 @@ import "./allMovies.css";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 //import images
-import Camera from '../assets/img/videocamera.png';
-import Reel from '../assets/img/cinta-03.png'
+import Camera from '../../assets/img/videocamera.png';
+import Reel from '../../assets/img/cinta-03.png'
 // import of services
-import { getMovies, deleteMovie } from "../service/api";
+import { getMovies, deleteMovie } from "../../service/api";
 
 const AllMovies = () => {
   const [movies, setMovies] = useState([]);

@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 import './formMovie.css'
 
 //import images
-import Cinta from '../assets/img/cinta-sola.png'
-import MovieImg from '../assets/img/movie.png'
+import Cinta from '../../assets/img/cinta-sola.png'
+import MovieImg from '../../assets/img/movie.png'
 
 //import icon from react icons
 import { MdNoteAdd } from 'react-icons/md'
@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 
 //import function from services api
-import { addMovie } from "../service/api";
+import { addMovie } from "../../service/api";
 
 //styled components - emotion library
 const FormSpan = styled(FormControl)`

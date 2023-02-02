@@ -6,8 +6,8 @@ import moment from "moment/moment";
 import './formMovie.css'
 
 //import images
-import Cinta from '../assets/img/cinta-sola.png'
-import MovieImg from '../assets/img/movie.png'
+import Cinta from '../../assets/img/cinta-sola.png'
+import MovieImg from '../../assets/img/movie.png'
 
 //import components from material library
 import {
@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 
 //import functions from services api
-import { editMovie, getMovie } from "../service/api";
+import { editMovie, getMovie } from "../../service/api";
 
 //styled components - emotion library
 const FormSpan = styled(FormControl)`
